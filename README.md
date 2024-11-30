@@ -37,3 +37,7 @@ sudo -i -u test
 sudo apt-get install nginx
 ```
 
+---
+
+# Lab 2: Schedule a script to run daily at 5:00 PM that automates checking disk space usage for the root file system and sends an email(using msm-tp, mailutils) alert if usage exceeds a specified threshold (10%)
+## Steps
