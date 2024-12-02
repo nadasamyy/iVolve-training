@@ -132,3 +132,15 @@ sudo systemctl restart bind9
 Make sure your EC2 security group has these ports open:
 - TCP port 53
 - UDP port 53
+
+## Test
+```
+# Test using localhost
+dig @localhost memo.com
+
+# Test using EC2's private IP
+dig @private_ip memo.com
+
+# Test using EC2's public IP
+dig @public_ip memo.com
+```
