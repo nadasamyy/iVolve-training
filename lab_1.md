@@ -18,3 +18,19 @@ sudo adduser test
 sudo groupadd ivolve
 ```
 
+### 3. Add `test` to the `ivolve` group
+```bash
+sudo usermod -aG ivolve test
+```
+
+### 4. Modify sudoers file to allow passwordless Nginx installation
+```bash
+sudo visudo
+test ALL=NOPASSWD: /usr/bin/apt-get install nginx, /usr/sbin/service nginx *
+```
+
+### 5. Install Nginx as `test` user
+```bash
+sudo -i -u test
+sudo apt-get install nginx
+```
