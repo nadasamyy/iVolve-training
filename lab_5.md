@@ -18,7 +18,7 @@ sudo parted -s /dev/xvdf mklabel gpt
 sudo parted -s /dev/xvdf mkpart data1 ext4 1MiB 5GiB
 sudo parted -s /dev/xvdf mkpart lvm1 5GiB 10GiB
 sudo parted -s /dev/xvdf mkpart lvm2 10GiB 13GiB
-sudo parted -s /dev/xvdf mkpart swap1 13GiB 15GiB
+sudo parted -s /dev/xvdf mkpart swap1 13GiB 100%
 
 # Set LVM flags
 sudo parted -s /dev/xvdf set 2 lvm on
