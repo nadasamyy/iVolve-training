@@ -1,5 +1,42 @@
 # Lab 6: Generate public and private keys and enable SSH from your machine to another VM using the key. Configure SSH to just run ‘ssh ivolve’ without specify username, IP and key in the command.
 
+## prequisites
+
+On Ubuntu EC2, you need to add the Amazon Linux private key to establish the initial connection for ssh-copy-id. Here's how:
+
+1. First, create the .ssh directory if it doesn't exist:
+```bash
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+```
+
+2. Add the private key (assuming you have the .pem file):
+```bash
+# Copy your .pem file content to a new private key file
+nano ~/.ssh/amazonlinux.pem
+
+# Set correct permissions
+chmod 600 ~/.ssh/amazonlinux.pem
+```
+
+3. Configure SSH to use this key:
+```bash
+# Edit or create SSH config
+nano ~/.ssh/config
+
+# Add these lines
+Host amazonlinux
+    HostName <amazon-linux-ip>
+    User ec2-user
+    IdentityFile ~/.ssh/amazonlinux.pem
+    StrictHostKeyChecking accept-new
+```
+
+4. connect
+```bash
+ssh amazonlinux
+```
+
 ## Steps
 
 ### 1. Generate SSH Key Pair:
