@@ -1,5 +1,10 @@
 # Lab 3: Create a shell script to ping every server in the 172.16.17.x subnet (where x is a number between 0 and 255). If the ping succeeds, display the message “Server 172.16.17.x is up and running” If the ping fails, display the message “Server 172.16.17.x is unreachable”.
 
+```bash
+nano enhanced_ping_subnet.sh
+```
+
+add this to `enhanced_ping_subnet.sh`
 
 ```bash
 #!/bin/bash
@@ -54,4 +59,12 @@ duration=$((end_time - start_time))
 
 echo "----------------------------------------"
 echo "Scan completed in $duration seconds"'
+```
+
+```bash
+# Make script executable
+chmod +x enhanced_ping_subnet.sh
+
+# Run the script
+./enhanced_ping_subnet.sh
 ```
