@@ -1,2 +1,1 @@
-# Lab 4: Demonstrate the differences between using the hosts file and DNS for URL resolution. Modify the hosts file to resolve a URL to a specific IP address, then configure BIND9 as a DNS solution to resolve wildcard subdomains and verify resolution using dig or nslookup 
-      (e.g. memo.com , 1.1.1.1).
+# Lab 4: Demonstrate the differences between using the hosts file and DNS for URL resolution. Modify the hosts file to resolve a URL to a specific IP address, then configure BIND9 as a DNS solution to resolve wildcard subdomains and verify resolution using dig or nslookup (e.g. memo.com --> 1.1.1.1).
