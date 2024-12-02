@@ -2,7 +2,7 @@
 
 ## prequisites
 
-On Ubuntu EC2, you need to add the EC2 Amazon Linux private key to establish the initial connection for ssh-copy-id. Here's how:
+On Ubuntu EC2, you need to add the EC2 AmazonLinux private key to establish the initial connection for ssh-copy-id. Here's how:
 
 1. First, create the .ssh directory if it doesn't exist:
 ```bash
