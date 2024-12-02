@@ -132,7 +132,9 @@ sudo systemctl restart bind9
 Make sure your EC2 security group has these ports open:
 - TCP port 53
 - UDP port 53
--- as DNS uses both TCP and UDP port 53, so both need to be open in your security group.
+
+as DNS uses both TCP and UDP port 53, so both need to be open in your security group.
+
 ## Test
 ```
 # Test using localhost
