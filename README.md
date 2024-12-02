@@ -1,4 +1,4 @@
-# iVolve-training
+# iVolve-Training-Labs
 
 ## Linux
 
