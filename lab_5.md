@@ -91,7 +91,7 @@ sudo vgextend vg_data /dev/xvdf3
 # Extend logical volume
 sudo lvextend -l +100%FREE /dev/vg_data/lv_data
 
-# Resize filesystem
+# Resize filesystem within the logical volume
 sudo resize2fs /dev/vg_data/lv_data
 ```
 
