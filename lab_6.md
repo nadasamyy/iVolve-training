@@ -1,4 +1,4 @@
-# Lab 6: Generate public and private keys and enable SSH from your machine to another VM using the key. Configure SSH to just run ‘ssh amazonlinux’ without specify username, IP and key in the command.
+# Lab 6: Generate public and private keys and enable SSH from your machine to another VM using the key. Configure SSH to just run ‘ssh ivolve’ (amazonlinux) without specify username, IP and key in the command.
 
 ## prequisites
 
