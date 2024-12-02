@@ -33,7 +33,7 @@ password       your-app-password
 account default : gmail
 ```
 - note: To get an App Password for Gmail, search on youtube
-Set proper permissions:
+Set proper permissions.
 ```bash
 sudo chmod 600 /etc/msmtprc
 ```
