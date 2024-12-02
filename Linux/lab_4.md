@@ -106,7 +106,9 @@ sudo systemctl status bind9
 ### 8. Test Configuration
 > [!NOTE]
 > dig @server domain_name , @server: Specifies which DNS server to query
+
 > @localhost:  Query your local DNS server (BIND9 on your machine)
+
 > If you don't specify @server, dig will use the default nameserver in `/etc/resolv.conf`
 ```bash
 # Test using dig, 
