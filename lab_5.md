@@ -26,6 +26,16 @@ sudo parted -s /dev/xvdf set 3 lvm on
 ```
 
 ### 3. Create filesystem on first partition:
+Purpose of Mounting:
+- Makes the filesystem accessible in the Linux directory tree
+- Allows users and applications to read/write files
+- Integrates the new storage into the existing file hierarchy
+
+Think of it like this:
+- A filesystem is like a book with content
+- Mount point is like a shelf in your library
+- Mounting is placing the book (filesystem) on a specific shelf (directory)
+
 ```bash
 # Create ext4 filesystem
 sudo mkfs.ext4 /dev/xvdf1
@@ -42,8 +52,8 @@ echo "UUID=$UUID /mnt/data1 ext4 defaults 0 0" | sudo tee -a /etc/fstab
 ### 4. Configure swap partition:
 ```bash
 # Create swap
-sudo mkswap /dev/xvdf4
-sudo swapon /dev/xvdf4
+sudo mkswap /dev/xvdf4      # Format partition as swap space
+sudo swapon /dev/xvdf4      # Activate the swap space
 
 # Add to fstab using UUID
 UUID=$(sudo blkid -s UUID -o value /dev/xvdf4)
