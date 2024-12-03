@@ -54,12 +54,13 @@ ec2-54-161-238-251.compute-1.amazonaws.com
 ```
 
 ### 3. Run some ad-hoc commands
+
 > **Note:**  
-> Using with sudo (become):
-```bash
-# Add -b or --become to use sudo
-ansible webservers -b -m shell -a "tail /var/log/messages"
-```
+> Using with sudo (become):  
+> ```bash
+> # Add -b or --become to use sudo
+> ansible webservers -b -m shell -a "tail /var/log/messages"
+> ```
 
 #### 1. Basic ping test:
 ```bash
