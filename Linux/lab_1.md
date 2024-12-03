@@ -34,3 +34,14 @@ test ALL=NOPASSWD: /usr/bin/apt-get install nginx, /usr/sbin/service nginx *
 sudo -i -u test
 sudo apt-get install nginx
 ```
+
+---
+
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## ✍️ Author
+**King Memo**
+
+## 🙏 Thank You!
+Thank you for using this project. Your support and feedback are greatly appreciated!
