@@ -1,0 +1,111 @@
+---
+- name: Install and Configure MariaDB on Amazon Linux 2023
+  hosts: database_servers
+  become: yes
+  vars_files:
+    - vars/mysql_secrets.yml
+
+  tasks:
+    - name: Update all packages
+      dnf:
+        name: '*'
+        state: latest
+
+    - name: Install MariaDB and Python packages
+      dnf:
+        name:
+          - mariadb105-server
+          - mariadb105
+          - python3-pip
+        state: present
+
+    - name: Install PyMySQL using pip
+      pip:
+        name: PyMySQL
+        state: present
+
+    - name: Start and enable MariaDB service
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
+
+    - name: Wait for MariaDB to start
+      wait_for:
+        port: 3306
+        timeout: 30
+
+    # Initialize MariaDB root password
+    - name: Set MariaDB root password
+      mysql_user:
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        user: root
+        password: "{{ mysql_root_password }}"
+        host_all: yes
+        state: present
+        check_implicit_admin: yes
+
+    - name: Create .my.cnf file
+      template:
+        src: templates/my.cnf.j2
+        dest: /root/.my.cnf
+        mode: '0600'
+
+    - name: Remove anonymous users
+      mysql_user:
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        name: ''
+        host_all: yes
+        state: absent
+
+    - name: Remove test database
+      mysql_db:
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        name: test
+        state: absent
+
+    - name: Create database
+      mysql_db:
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        name: "{{ mysql_database }}"
+        state: present
+
+    - name: Create database user
+      mysql_user:
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        name: "{{ mysql_user }}"
+        password: "{{ mysql_password }}"
+        priv: "{{ mysql_database }}.*:ALL"
+        host: '%'
+        state: present
+
+    - name: Configure MariaDB for remote access
+      copy:
+        dest: /etc/my.cnf.d/mariadb-server.cnf
+        content: |
+          [mysqld]
+          bind-address = 0.0.0.0
+          skip-networking = 0
+          skip-bind-address
+        backup: yes
+      notify: restart mariadb
+
+    - name: Check if firewalld is installed
+      command: which firewalld
+      register: firewalld_check
+      ignore_errors: yes
+      changed_when: false
+
+    - name: Allow MariaDB in firewall
+      firewalld:
+        port: 3306/tcp
+        permanent: yes
+        state: enabled
+      when: firewalld_check.rc == 0
+      ignore_errors: yes
+
+  handlers:
+    - name: restart mariadb
+      service:
+        name: mariadb
+        state: restarted
