@@ -15,9 +15,9 @@ ansible-vault create vars/mysql_secrets.yml
 Enter your vault password when prompted!!!!!!,        <!-- for this lab_9, vault password is: 12345 -->
 then add these contents:
 ```yaml
-mysql_root_password: "your_secure_root_password"      <!-- mysql_root_password is: 12345 -->
-mysql_user: "ivolve"                        <!-- mysql_user: ivolve -->
-mysql_password: "your_secure_user_password"        <!-- mysql_password is: 12345 -->
+mysql_root_password: "your_secure_root_password"      # mysql_root_password is: 12345
+mysql_user: "ivolve"                        #  mysql_user: ivolve
+mysql_password: "your_secure_user_password"        # mysql_password is: 12345
 mysql_database: "ivolve"        
 ```
 
