@@ -177,10 +177,6 @@ ansible database_servers -m shell -a "mysql --version"
 ansible database_servers -m shell -a "pip3 list | grep PyMySQL"
 ```
 
-<div style="background-color: #f0f8ff; padding: 10px; border-left: 5px solid #4CAF50; font-family: Arial, sans-serif; color: #333;">
-    <strong>Note:</strong> The following commands should be run on the <strong>remote server</strong> where MySQL is installed.
-</div>
-
 > **Note:** The following commands should be run on the **remote server** where MySQL is installed.
 If you need to test the database connection:
 ```
