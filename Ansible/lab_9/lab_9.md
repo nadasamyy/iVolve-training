@@ -177,6 +177,8 @@ ansible database_servers -m shell -a "mysql --version"
 ansible database_servers -m shell -a "pip3 list | grep PyMySQL"
 ```
 
+---
+
 > **Note:** The following commands should be run on the **remote server** where MySQL is installed.
 If you need to test the database connection:
 ```
@@ -189,3 +191,15 @@ mysql> SHOW DATABASES;
 mysql> USE ivolve;
 mysql> SHOW TABLES;
 ```
+
+---
+
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## ✍️ Author
+**King Memo**
+
+## 🙏 Thank You!
+Thank you for using this project. Your support and feedback are greatly appreciated!
+
