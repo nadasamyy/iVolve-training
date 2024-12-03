@@ -146,3 +146,14 @@ dig @private_ip memo.com
 # Test using EC2's public IP
 dig @public_ip memo.com
 ```
+
+---
+
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## ✍️ Author
+**King Memo**
+
+## 🙏 Thank You!
+Thank you for using this project. Your support and feedback are greatly appreciated!
