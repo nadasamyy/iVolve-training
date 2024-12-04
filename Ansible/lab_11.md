@@ -47,19 +47,18 @@ pip install boto3 ansible
 ansible-galaxy collection install amazon.aws
 ```
 ⚠️ **Important Note:**
+For future use, remember to:  
+- Navigate to your project directory  
+- Activate the virtual environment before running any commands:  
+```bash  
+cd ansible_project  
+source venv/bin/activate  
+```
+⚡ **Technical Notes**
 - To deactivate the virtual environment when you're done:  
 ```bash  
 deactivate  
-```  
-
-> **Note:** For future use, remember to:  
-> Navigate to your project directory  
-> Activate the virtual environment before running any commands:  
-> ```bash  
-> cd ansible_project  
-> source venv/bin/activate  
-> ```  
-
+```
 
 
 
