@@ -46,6 +46,10 @@ pip install boto3 ansible
 ```bash
 ansible-galaxy collection install amazon.aws
 ```
+#### 7. Install the Apache role
+```bash
+ansible-galaxy install geerlingguy.apache
+```
 ⚠️ **Important Note:**
 For future use, remember to:  
 - Navigate to your project directory  
