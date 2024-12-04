@@ -1,0 +1,13 @@
+---
+- hosts: tag_Role_webserver  # targets hosts tagged with Role:webserver
+  become: yes
+  vars:
+   # ansible_ssh_private_key_file: ./ubuntu.pem
+   # ansible_user: ubuntu
+    apache_listen_port: 80
+    apache_vhosts:
+      - servername: "example.com"
+        documentroot: "/var/www/html"
+
+  roles:
+    - geerlingguy.apache
