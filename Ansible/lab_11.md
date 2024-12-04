@@ -49,7 +49,17 @@ ansible-galaxy collection install amazon.aws
 > **Note:** To deactivate the virtual environment when you're done:  
 > ```bash  
 > deactivate  
-> ```
+> ```  
+
+> **Note:** For future use, remember to:  
+> Navigate to your project directory  
+> Activate the virtual environment before running any commands:  
+> ```bash  
+> cd ansible_project  
+> source venv/bin/activate  
+> ```  
+
+
 
 
 
