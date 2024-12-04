@@ -46,10 +46,11 @@ pip install boto3 ansible
 ```bash
 ansible-galaxy collection install amazon.aws
 ```
-> **Note:** To deactivate the virtual environment when you're done:  
-> ```bash  
-> deactivate  
-> ```  
+⚠️ **Important Note:**
+- To deactivate the virtual environment when you're done:  
+```bash  
+deactivate  
+```  
 
 > **Note:** For future use, remember to:  
 > Navigate to your project directory  
