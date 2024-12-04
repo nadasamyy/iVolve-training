@@ -60,57 +60,11 @@ source venv/bin/activate
 deactivate  
 ```
 
+---
 
+## Steps
 
-
-### Install the required collections:
-```bash
-ansible-galaxy collection install amazon.aws
-pip install boto3
-```
-### Install the Apache role:
-```bash
-ansible-galaxy install geerlingguy.apache
-```
-
-
-For future use, remember to:
-
-1. Navigate to your project directory
-
-2. Activate the virtual environment before running any commands:
-```bash
-cd ansible_project
-source venv/bin/activate
-```
-
-ansible.cfg
-```cfg
-[defaults]
-inventory = ./aws_ec2.yml      #we refer to aws_ec2.yml file here, so we don't need to pass it in commands
-host_key_checking = False
-remote_user = ubuntu
-private_key_file = ./ubuntu.pem
-#remote_user = ec2-user
-#private_key_file = ./amazon.pem
-```
-
-
-aws_ec2.yml
-```yaml
-plugin: aws_ec2
-regions:
-  - us-east-1  # adjust region as needed
-filters:
-  tag:Environment: ivolve  # adjust tags as needed
-keyed_groups:
-  - prefix: tag
-    key: tags
-compose:
-  ansible_host: public_ip_address
-```
-
-webserver.yml
+### 1. Create a playbook named `webserver.yml`:
 ```yaml
 ---
 - hosts: tag_Role_webserver  # targets hosts tagged with Role:webserver
@@ -127,9 +81,55 @@ webserver.yml
     - geerlingguy.apache
 ```
 
+### 2. Create an dynamic inventory file `aws_ec2.yml`:
+```yaml
+plugin: aws_ec2
+regions:
+  - us-east-1  # adjust region as needed
+filters:
+  tag:Environment: ivolve  # adjust tags as needed
+keyed_groups:
+  - prefix: tag
+    key: tags
+compose:
+  ansible_host: public_ip_address
+```
 
+### 3. Create configuration file `ansible.cfg`:
+```cfg
+[defaults]
+inventory = ./aws_ec2.yml      #we refer to aws_ec2.yml file here, so we don't need to pass it in commands
+host_key_checking = False
+remote_user = ubuntu
+private_key_file = ./ubuntu.pem
+#remote_user = ec2-user
+#private_key_file = ./amazon.pem
+```
 
-To run the playbook:
+### 4. To test the inventory `aws_ec2.yml`:
+```bash
+# List all hosts
+ansible-inventory --list
+
+# List in graph format
+ansible-inventory --graph
+
+# Output in YAML format
+ansible-inventory --list --yaml
+```
+
+### 5. To run the playbook:
 ```bash
 ansible-playbook webserver.yml
 ```
+
+---
+
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## ✍️ Author
+**King Memo**
+
+## 🙏 Thank You!
+Thank you for using this project. Your support and feedback are greatly appreciated!
