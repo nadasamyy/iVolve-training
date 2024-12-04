@@ -96,7 +96,7 @@ compose:
 ```
 
 ### 3. Create configuration file `ansible.cfg`:
-```cfg
+```ini
 [defaults]
 inventory = ./aws_ec2.yml      #we refer to aws_ec2.yml file here, so we don't need to pass it in commands
 host_key_checking = False
