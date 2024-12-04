@@ -92,7 +92,7 @@ keyed_groups:
   - prefix: tag
     key: tags
 compose:
-  ansible_host: public_ip_address
+  ansible_host: public_ip_address      # Use public IP for SSH connections
 ```
 
 ### 3. Create configuration file `ansible.cfg`:
